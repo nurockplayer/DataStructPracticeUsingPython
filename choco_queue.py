@@ -51,8 +51,10 @@ class Queue():
         if self.is_empty():
             raise QueueEmptyError()
         node = self._qhead
+        item = node.item
+        del node
         if self._qhead is self._qtail:
             self._qtail = None
         self._qhead = self._qhead.next
         self._count -= 1
-        return node.item
+        return item

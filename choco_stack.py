@@ -38,9 +38,11 @@ class Stack():
         if self.is_empty():
             raise StackEmptyError()
         node = self._top
+        item = node.item
+        del node
         self._top = self._top.next
         self._size -= 1
-        return node.item
+        return item
 
     def push(self, item):
         if self.is_full():
